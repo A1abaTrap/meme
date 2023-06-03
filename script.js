@@ -140,9 +140,9 @@ function calculateTotal() {
   var totalNightShiftHoursCell = document.getElementById("totalNightShiftHoursCell");
   var totalWorkingDaysCell = document.getElementById("totalWorkingDaysCell");
 
-  totalWorkingHoursCell.textContent = totalWorkingHours.toFixed(2);
-  totalOvertimeHoursCell.textContent = totalOvertimeHours.toFixed(2);
-  totalNightShiftHoursCell.textContent = totalNightShiftHours.toFixed(2);
+  totalWorkingHoursCell.textContent = totalWorkingHours.toFixed(1);
+  totalOvertimeHoursCell.textContent = totalOvertimeHours.toFixed(1);
+  totalNightShiftHoursCell.textContent = totalNightShiftHours.toFixed(1);
   totalWorkingDaysCell.textContent = totalWorkingDays;
 
   moveTotalRow();
