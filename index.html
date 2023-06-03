@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculate Working Hours</title>
+    <!--Link to Bootstrap CSS file-->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"> -->
+    <!--Link to your custom CSS file-->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <img src="./logofull-.png" alt="Logo" class="logo" onclick="location.reload();">
+    <div class="container">
+        <div class="form-container">
+            <h1>TÍNH GIỜ LÀM VIỆC</h1>
+            <form>
+                <div class="form-group">
+                    <label for="StartTimeTextBox">Giờ Vào:</label>
+                    <input type="time" class="form-control" id="StartTimeTextBox">
+                </div>
+                <div class="form-group">
+                    <label for="EndTimeTextBox">Giờ Về:</label>
+                    <input type="time" class="form-control" id="EndTimeTextBox">
+                </div>
+                <div class="form-group">
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="CheckBox1">
+                        <label class="form-check-label" for="CheckBox1">Nghỉ Trưa (1:30p)</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="CheckBox2">
+                        <label class="form-check-label" for="CheckBox2">Nghỉ Chiều (1:00p)</label>
+                    </div>
+                </div>
+            </form>
+            <br>
+            <div class="form-group">
+                <label for="WorkingHoursLabel">TỔNG GIỜ LÀM VIỆC:</label>
+                <input type="text" class="form-control" id="WorkingHoursLabel" readonly>
+            </div>
+            <div class="form-group">
+                <label for="OvertimeHoursLabel">TỔNG TIẾNG TĂNG CA:</label>
+                <input type="text" class="form-control" id="OvertimeHoursLabel" readonly>
+            </div>
+            <div class="form-group">
+                <label for="NightShiftLabel">TỔNG GIỜ CA ĐÊM:</label>
+                <input type="text" class="form-control" id="NightShiftLabel" readonly>
+            </div>
+            <button type="button" onclick="getDataFromForm()" class="custom-button">Lấy Dữ Liệu</button>
+            <button type="button" onclick="clearTableData()" class="custom-button">Xóa Dữ Liệu</button>
+
+
+        </div>
+        <div class="table-container">
+            <div class="table-wrapper">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>STT</th>
+                        <th>Ngày công</th>
+                        <th>Giờ công</th>
+                        <th>Giờ tăng ca</th>
+                        <th>Giờ ca đêm</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    <tr id="totalRow">
+                        <td colspan="1">Tổng cộng</td>
+                        <td id="totalWorkingDaysCell"></td>
+                        <td id="totalWorkingHoursCell"></td>
+                        <td id="totalOvertimeHoursCell"></td>
+                        <td id="totalNightShiftHoursCell"></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+             </div>
+        </div>
+    </div>
+    <footer>
+        <p>© Bản quyền thuộc về TRẦN HOÀI THƯƠNG</p>
+        <p>© Copyright by TRẦN HOÀI THƯƠNG ☞ Do not Reup</p>
+    </footer>
+    <!--Link to jQuery and Bootstrap JS files-->
+    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> -->
+    <!--Link to your JavaScript file-->
+    <script src="script.js"></script>
+</body>
+</html>
