@@ -111,10 +111,10 @@ function calculateTotal() {
 
   for (var i = 0; i < rows.length - 1; i++) {
     var row = rows[i];
-    var workingDaysCell = row.querySelector("td:nth-child(2)");
-    var workingHoursCell = row.querySelector("td:nth-child(3)");
-    var overtimeHoursCell = row.querySelector("td:nth-child(4)");
-    var nightShiftHoursCell = row.querySelector("td:nth-child(5)");
+    var workingDaysCell = row.querySelector("td:nth-child(3)");
+    var workingHoursCell = row.querySelector("td:nth-child(4)");
+    var overtimeHoursCell = row.querySelector("td:nth-child(5)");
+    var nightShiftHoursCell = row.querySelector("td:nth-child(6)");
 
     var workingDays = parseFloat(workingDaysCell.textContent);
     var workingHours = parseFloat(workingHoursCell.textContent);
