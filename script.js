@@ -63,7 +63,7 @@ function getDataFromForm() {
   var overtimeHours = parseFloat(document.getElementById("OvertimeHoursLabel").value);
   var nightShiftHours = parseFloat(document.getElementById("NightShiftLabel").value);
 
-// Kiểm tra giá trị của WorkingHoursLabel
+  // Kiểm tra giá trị của WorkingHoursLabel
   var ngayCong = isNaN(workingHours) || workingHours < 3.99? 0 : 1;
 
   // Thêm dữ liệu vào bảng
@@ -89,6 +89,7 @@ function getDataFromForm() {
   row.appendChild(cell4);
   row.appendChild(cell5);
   row.appendChild(cell6);
+
   tableBody.appendChild(row);
 
   // Di chuyển hàng tổng cộng khi có dữ liệu
