@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Calculate Working Hours</title>
     <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
     <img src="./logofull-.png" alt="Logo" class="logo" onclick="location.reload();">
@@ -47,39 +48,40 @@
             </div>
             <button type="button" onclick="getDataFromForm()" class="custom-button">Lấy Dữ Liệu</button>
             <button type="button" onclick="clearTableData()" class="custom-button">Xóa Dữ Liệu</button>
+            <button type="button" onclick="printTable()" class="custom-button">In Bảng</button>
 
 
         </div>
         <div class="table-container">
             <div class="table-wrapper">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>STT</th>
-                        <th>Giờ vào/ra</th>
-                        <th>Ngày công</th>
-                        <th>Giờ công</th>
-                        <th>Giờ tăng ca</th>
-                        <th>Giờ ca đêm</th>
-                    </tr>
-                </thead>
-                <tbody id="tableBody">
-                    <tr id="totalRow">
-                        <td colspan="2">Tổng cộng</td>
-                        <td id="totalWorkingDaysCell"></td>
-                        <td id="totalWorkingHoursCell"></td>
-                        <td id="totalOvertimeHoursCell"></td>
-                        <td id="totalNightShiftHoursCell"></td>
-                        <td></td>
-                    </tr>
-                </tbody>
-            </table>
-             </div>
+                <table class="table">
+                    <thead class="fixed-header">
+                        <tr>
+                            <th>STT</th>
+                            <th>Giờ vào/ra</th>
+                            <th>Ngày công</th>
+                            <th>Giờ công</th>
+                            <th>Giờ tăng ca</th>
+                            <th>Giờ ca đêm</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="tableBody">
+                        <tr id="totalRow">
+                            <td colspan="2">Tổng cộng</td>
+                            <td id="totalWorkingDaysCell"></td>
+                            <td id="totalWorkingHoursCell"></td>
+                            <td id="totalOvertimeHoursCell"></td>
+                            <td id="totalNightShiftHoursCell"></td>
+                        </tr>
+                    </tbody>
+                </table>               
+            </div>
         </div>
     </div>
     <footer>
-        <p>© Bản quyền thuộc về @ </p>
-        <p>© Copyright by @☞ Do not Reup</p>
+        <p>© Bản quyền thuộc về TRẦN HOÀI THƯƠNG</p>
+        <p>© Copyright by TRẦN HOÀI THƯƠNG ☞ Do not Reup</p>
     </footer>
     <script src="script.js"></script>
 </body>
