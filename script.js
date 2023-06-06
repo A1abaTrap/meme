@@ -63,8 +63,8 @@ function getDataFromForm() {
   var overtimeHours = parseFloat(document.getElementById("OvertimeHoursLabel").value);
   var nightShiftHours = parseFloat(document.getElementById("NightShiftLabel").value);
 
-  // Kiểm tra giá trị của WorkingHoursLabel
-  var ngayCong = isNaN(workingHours) || workingHours <= 0 ? 0 : 1;
+// Kiểm tra giá trị của WorkingHoursLabel
+  var ngayCong = isNaN(workingHours) || workingHours < 3.99? 0 : 1;
 
   // Thêm dữ liệu vào bảng
   var tableBody = document.querySelector(".table tbody");
@@ -74,19 +74,21 @@ function getDataFromForm() {
   var cell3 = document.createElement("td");
   var cell4 = document.createElement("td");
   var cell5 = document.createElement("td");
+  var cell6 = document.createElement("td");
 
   cell1.textContent = stt++;
-  cell2.textContent = ngayCong;
-  cell3.textContent = !isNaN(workingHours) && workingHours > 0 ? workingHours : "";
-  cell4.textContent = isNaN(overtimeHours) ? "" : overtimeHours;
-  cell5.textContent = isNaN(nightShiftHours) ? "" : nightShiftHours;
+  cell2.textContent = startTime + " ~ " + endTime;
+  cell3.textContent = ngayCong;
+  cell4.textContent = !isNaN(workingHours) && workingHours > 0 ? workingHours : "";
+  cell5.textContent = isNaN(overtimeHours) ? "" : overtimeHours;
+  cell6.textContent = isNaN(nightShiftHours) ? "" : nightShiftHours;
 
   row.appendChild(cell1);
   row.appendChild(cell2);
   row.appendChild(cell3);
   row.appendChild(cell4);
   row.appendChild(cell5);
-
+  row.appendChild(cell6);
   tableBody.appendChild(row);
 
   // Di chuyển hàng tổng cộng khi có dữ liệu
