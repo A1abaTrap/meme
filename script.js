@@ -52,8 +52,16 @@ function calculate() {
 
 
 var stt = 1; // Biến để lưu trữ giá trị STT
+var maxRows = 32; // Số dòng tối đa cho phép
 
 function getDataFromForm() {
+  // Kiểm tra số lượng dòng trong bảng
+  var rowCount = document.querySelectorAll(".table tbody tr").length;
+  if (rowCount >= maxRows) {
+    alert("Đã đạt tối đa " + maxRows + " dòng.");
+    return;
+  }
+
   // Lấy dữ liệu từ các trường input
   var startTime = document.getElementById("StartTimeTextBox").value;
   var endTime = document.getElementById("EndTimeTextBox").value;
@@ -64,7 +72,7 @@ function getDataFromForm() {
   var nightShiftHours = parseFloat(document.getElementById("NightShiftLabel").value);
 
   // Kiểm tra giá trị của WorkingHoursLabel
-  var ngayCong = isNaN(workingHours) || workingHours < 3.99? 0 : 1;
+  var ngayCong = isNaN(workingHours) || workingHours < 3.99 ? 0 : 1;
 
   // Thêm dữ liệu vào bảng
   var tableBody = document.querySelector(".table tbody");
@@ -97,8 +105,11 @@ function getDataFromForm() {
 
   // Tính tổng cộng
   calculateTotal();
- // add delete button to the new row
+
+  // Thêm nút xóa vào dòng mới
   addDeleteButtonToRow();
+    // Cuộn màn hình đến dòng vừa thêm
+    row.scrollIntoView();
 }
 
 function calculateTotal() {
@@ -215,4 +226,43 @@ function clearTableData() {
   document.getElementById("totalNightShiftHoursCell").textContent = totalNightShiftHoursCell;
 
   stt = 1; // Đặt lại giá trị STT về 1
+}
+function printTable() {
+  // Lấy đối tượng bảng
+  var table = document.querySelector(".table");
+
+  // Loại bỏ cột "X" khỏi bảng
+  var deleteColumnIndex = 6; // Chỉ số cột "X" (đếm từ 0)
+  var cells = table.querySelectorAll("td:nth-child(" + (deleteColumnIndex + 1) + ")");
+  cells.forEach(function(cell) {
+    cell.remove();
+  });
+
+  // Tạo cửa sổ mới để in
+  var printWindow = window.open("", "_blank");
+
+  // Thiết lập nội dung HTML và CSS trong cửa sổ in
+  printWindow.document.open();
+  printWindow.document.write("<html><head><title>Bảng Chấm Công</title>");
+  printWindow.document.write("<style>");
+  printWindow.document.write(".table-container { background-color: #f0f0f0; padding: 20px; }");
+  printWindow.document.write(".table { width: 100%; border-collapse: collapse; }");
+  printWindow.document.write(".table th, .table td { padding: 8px; border: 1px solid #ccc; text-align: center; }");
+  printWindow.document.write(".table th { background-color: #ddd; }");
+  printWindow.document.write(".table #totalRow td { font-weight: bold; }");
+  printWindow.document.write(".header { text-align: center; font-size: 18px; font-weight: bold; margin-bottom: 10px; }");
+  printWindow.document.write("@page { size: A4; margin: 0; }"); // Điều chỉnh kích thước trang in thành A4 và loại bỏ các khoảng trống
+  printWindow.document.write("@media print { body { margin: 1cm; } }"); // Điều chỉnh khoảng cách lề in trong trường hợp in từ trình duyệt
+  printWindow.document.write("@media print { .table-container { overflow: hidden; } }"); // Ẩn phần tử tràn ra ngoài trang in
+  printWindow.document.write("</style>");
+  printWindow.document.write("</head><body>");
+  printWindow.document.write("<div class='table-container'>");
+  printWindow.document.write("<h1 class='header'>Bảng Chấm Công</h1>");
+  printWindow.document.write(table.outerHTML);
+  printWindow.document.write("</div>");
+  printWindow.document.write("</body></html>");
+  printWindow.document.close();
+
+  // In bảng
+  printWindow.print();
 }
