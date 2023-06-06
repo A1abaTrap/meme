@@ -44,10 +44,10 @@ function calculate() {
     nightShiftHours = Math.round(nightShiftHours * 100) / 100;
   }
 
-  //Hiển thị kết quả trên TextBox
-  document.getElementById("WorkingHoursLabel").value = actualHours;
-  document.getElementById("OvertimeHoursLabel").value = overtimeHours;
-  document.getElementById("NightShiftLabel").value = nightShiftHours;
+// Hiển thị kết quả trên TextBox
+  document.getElementById("WorkingHoursLabel").value = actualHours.toFixed(1);
+  document.getElementById("OvertimeHoursLabel").value = overtimeHours.toFixed(1);
+  document.getElementById("NightShiftLabel").value = nightShiftHours.toFixed(1);
 }
 
 
