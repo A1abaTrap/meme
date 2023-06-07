@@ -245,12 +245,12 @@ function printTable() {
   printWindow.document.open();
   printWindow.document.write("<html><head><title>Bảng Chấm Công</title>");
   printWindow.document.write("<style>");
-  printWindow.document.write(".table-container { background-color: #f0f0f0; padding: 20px; }");
+  printWindow.document.write(".table-container { background-color: #f0f0f0; padding: 0px; transform: scale(1); transform-origin: top right;}");
   printWindow.document.write(".table { width: 100%; border-collapse: collapse; }");
   printWindow.document.write(".table th, .table td { padding: 8px; border: 1px solid #ccc; text-align: center; }");
   printWindow.document.write(".table th { background-color: #ddd; }");
   printWindow.document.write(".table #totalRow td { font-weight: bold; }");
-  printWindow.document.write(".header { text-align: center; font-size: 18px; font-weight: bold; margin-bottom: 10px; }");
+  printWindow.document.write(".header { text-align: center; font-weight: bold; margin-bottom: 0px;margin-top: -5px }");
   printWindow.document.write("@page { size: A4; margin: 0; }"); // Điều chỉnh kích thước trang in thành A4 và loại bỏ các khoảng trống
   printWindow.document.write("@media print { body { margin: 1cm; } }"); // Điều chỉnh khoảng cách lề in trong trường hợp in từ trình duyệt
   printWindow.document.write("@media print { .table-container { overflow: hidden; } }"); // Ẩn phần tử tràn ra ngoài trang in
