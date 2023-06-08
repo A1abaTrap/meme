@@ -265,4 +265,6 @@ function printTable() {
 
   // In bảng
   printWindow.print();
+  //Đóng Trang
+  printWindow.close();
 }
